@@ -38,9 +38,9 @@ Create new middleware to serve watching jade files and generating the html
 
 **Options**
 
-- `src (string)`         jade files src directory
-- `out (string)`         output the compiled html to <dir>
-- `srcName (string)`     can be a file name or wildcard (without .jade extension) Default is wildcard *
+- `src (string)`         jade files src directory; Default to src/views
+- `out (string)`         output the compiled html to <dir>; Default to static/views
+- `srcName (string)`     can be a file name or wildcard (without .jade extension); Default is wildcard *
 - `obj (string)`         javascript options object 
 - `path (string)`        filename used to resolve includes
 - `pretty (boolean)`     compile pretty html output
