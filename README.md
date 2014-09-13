@@ -38,7 +38,7 @@ Create new middleware to serve watching jade files and generating the html
 
 **Options**
 
-- src                                jade files src directory
+- src (string):                      jade files src directory
 - out (string):       --out <dir>    output the compiled html to <dir>
 - srcName (string):                  Can be a file name or wildcard (without .jade extension) Default is wildcard *
 - obj (string):       --obj <str>    javascript options object 
@@ -47,7 +47,6 @@ Create new middleware to serve watching jade files and generating the html
 - client (boolean):   --client       compile function for client-side runtime.js
 - noDebug (boolean):  --no-debug     compile without debugging (smaller functions)
 - watch (boolean):    --watch        watch files for changes and automatically re-render; Default is true
-
 - debug (boolean):                   print to console or terminal; Default is true
 
 ## License
