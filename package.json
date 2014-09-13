@@ -1,0 +1,42 @@
+{
+  "name": "jade-watcher",
+  "version": "1.0.0",
+  "description": "express/connect middleware to watch and handle jade files",
+  "keywords": [
+    "jade",
+    "watcher",
+    "node",
+    "express",
+    "middleware"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com:lbruney/jade-watcher.git"
+  },
+  "author": {
+    "name": "Lisa-Ann Bruney",
+    "email": "thebruney@bruneysite.com",
+    "url": "http://thebruneysite.com"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "jade": "~1.3.0"
+  },
+  "licenses": "MIT",
+  "main": "./index.js",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "scripts": {
+    "test": "true"
+  },
+  "readme": "express/connect middleware to watch and handle jade files.\n ```js \n app.use(jadeWatch({ src: __dirname, srcName: '_*' })); \n ```",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/lbruney/jade-watcher/issues"
+  },
+  "homepage": "https://github.com/lbruney/jade-watcher",
+  "_id": "jade-watcher@1.0.0",
+  "_from": "jade-watcher@~1.0.0",
+  "_resolved": "https://github.com/lbruney/jade-watcher/archive/master.zip"
+}
