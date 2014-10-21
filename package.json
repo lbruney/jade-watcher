@@ -1,6 +1,6 @@
 {
   "name": "jade-watcher",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "express/connect middleware to watch and handle jade files",
   "keywords": [
     "jade",
