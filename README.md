@@ -12,7 +12,8 @@ npm install jade-watcher
 ## Examples
 
 ```js
-app.use(jadeWatcher({ src: __dirname, srcName: '_*' }));
+app.use(jadeWatcher({ src: __dirname, srcName: '_*' })); // Looks for files starting with an underscore; _header.jade would match
+app.use(jadeWatcher({ srcName: 'index' })); // Watches a single file; index.jade
 app.use(jadeWatcher({ pretty: true, obj: "{'obj1': 'test1', 'obj2': 'test2'}" }));
 ```
 
@@ -48,6 +49,19 @@ Create new middleware to serve watching jade files and generating the html
 - `noDebug (boolean)`    compile without debugging (smaller functions)
 - `watch (boolean)`      watch files for changes and automatically re-render; Default is true
 - `debug (boolean)`      print to console or terminal; Default is true
+
+## Debugging
+* Default `src` and `out` values assume that the jade files resides in directories `src/views`. The `static/views` directories will be created automatically when jade-watcher runs, so assuming the entire app is in directory `myApp` then:
+
+```
+myApp/
+-/src
+--/views/index.jade
+:
+:
+-/static
+--views
+```
 
 ## License
 
