@@ -30,7 +30,7 @@
   "scripts": {
     "test": "true"
   },
-  "readme": "express/connect middleware to watch and handle jade files.\n ```js \n app.use(jadeWatch({ src: __dirname, srcName: '_*' })); \n ```",
+  "readme": "express/connect middleware to watch and handle jade files.\n ```js \n app.use(jadeWatch({ src: __dirname, srcName: '_*' })); // Looks for files starting with an underscore; _header.jade would match \n ``` View full documentation [here](https://github.com/lbruney/jade-watcher).",
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/lbruney/jade-watcher/issues"
