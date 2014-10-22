@@ -51,7 +51,7 @@ Create new middleware to serve watching jade files and generating the html
 - `debug (boolean)`      print to console or terminal; Default is true
 
 ## Debugging
-* Default `src` and `out` values assume that the jade files resides in directories `src/views`. The `static/views` directories will be created automatically when jade-watcher runs, so assuming the entire app is in directory `myApp` then:
+* Default `src` value assumes that the jade files reside in directories `src/views`. The `static/views` directories will be created automatically when jade-watcher runs, so assuming the entire app is in directory `myApp` then:
 
 ```
 myApp/
