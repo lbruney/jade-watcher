@@ -12,18 +12,22 @@ module.exports = function jadeWatcher(options) {
     , exec = require('child_process').exec
     , child = null
     , debug = options.debug || true
+    , maxBuffer = (options.maxBuffer ? options.maxBuffer : 5000)
 
     // Jade options
     , jade = {};
       jade.src = options.src || appPath.resolve('.', '../') + '/src/views'
     , jade.out = options.out || appPath.resolve('.', '../') + '/static/views'
     , jade.pretty = (options.pretty ? '--pretty ' : ' ') 
-    , jade.watch = ((options.watch == null || options.watch == true) ? '--watch ' : ' ') 
+    , jade.nameAfterFile = (options.nameAfterFile ? '--name-after-file ' : ' ')
+    , jade.doctype = (options.doctype ? '--doctype ' + jade.doctype : ' ')  
+    , jade.watch = ((options.watch == null || options.watch == true) ? '--watch' : ' ') 
     , jade.noDebug = (options.noDebug ? '--no-debug ' : ' ') 
-    , jade.client = (options.client ? '--client ' : ' ') 
+    , jade.client = (options.client ? ' --client ' : ' ') 
     , jade.obj = (options.obj ? "--obj '" + options.obj + "'" : ' ') 
     , jade.path = (options.path ? '--path ' + options.path : ' ') 
-    , jade.srcName = (options.srcName ? options.srcName : '*');
+    , jade.srcName = (options.srcName ? options.srcName : '*')
+    , jade.extension = (options.extension ? '--extension ' + options.extension : '--extension html');
 
   return function jadeWatcher(req, res, next) {
     if (!child) {
@@ -31,7 +35,7 @@ module.exports = function jadeWatcher(options) {
       child = exec(buildJade(jade, debug), { 
         encoding: 'utf8',
         timeout: 0,
-        maxBuffer: 5000 * 1024, 
+        maxBuffer: maxBuffer * 1024, 
         killSignal: 'SIGTERM'
         },
         function (error, stdout, stderr) {
@@ -47,8 +51,8 @@ module.exports = function jadeWatcher(options) {
 };
 
 function buildJade(options, debug) {
-  var command = 'jade '+ options.pretty + options.watch + options.client + options.noDebug + options.obj + options.path + options.src + '/' + options.srcName + '.jade --out ' + options.out
-  log(command, debug)
+  var command = 'jade '+ options.extension + options.doctype + options.nameAfterFile + options.pretty + options.watch + options.client + options.noDebug + options.obj + options.path + options.src + '/' + options.srcName + '.jade --out ' + options.out;
+  log(command, debug);
   return command;
 }
 
