@@ -6,6 +6,7 @@ express/connect middleware to watch and handle jade files
 ## Install
 
 ```bash
+npm install -g jade
 npm install jade-watcher
 ```
 
@@ -14,7 +15,8 @@ npm install jade-watcher
 ```js
 app.use(jadeWatcher({ src: __dirname, srcName: '_*' })); // Looks for files starting with an underscore; _header.jade would match
 app.use(jadeWatcher({ srcName: 'index' })); // Watches a single file; index.jade
-app.use(jadeWatcher({ pretty: true, obj: "{'obj1': 'test1', 'obj2': 'test2'}" }));
+app.use(jadeWatcher({ pretty: true, obj: JSON.stringify(localsObject) }));
+app.use(jadeWatcher({ src: __dirname + '/views', out: __dirname + '/build', pretty: true, obj: __dirname + '/locals.json' }));
 ```
 
 ## express
