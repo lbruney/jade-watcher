@@ -21,14 +21,19 @@ module.exports = function jadeWatcher(options) {
     , jade.watch = ((options.watch == null || options.watch == true) ? '--watch ' : ' ') 
     , jade.noDebug = (options.noDebug ? '--no-debug ' : ' ') 
     , jade.client = (options.client ? '--client ' : ' ') 
-    , jade.obj = (options.obj ? '--obj "' + options.obj + '"' : ' ') 
+    , jade.obj = (options.obj ? "--obj '" + options.obj + "'" : ' ') 
     , jade.path = (options.path ? '--path ' + options.path : ' ') 
     , jade.srcName = (options.srcName ? options.srcName : '*');
 
   return function jadeWatcher(req, res, next) {
     if (!child) {
       log('jade-watcher started.', debug);
-      child = exec(buildJade(jade, debug),
+      child = exec(buildJade(jade, debug), { 
+        encoding: 'utf8',
+        timeout: 0,
+        maxBuffer: 5000 * 1024, 
+        killSignal: 'SIGTERM'
+        },
         function (error, stdout, stderr) {
           log('stdout: ' + stdout, debug);
           log('stderr: ' + stderr, debug);
