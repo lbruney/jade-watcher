@@ -30,7 +30,7 @@
   "scripts": {
     "test": "true"
   },
-  "readme": "README.md"
+  "readme": "README.md",
 	"readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/lbruney/jade-watcher/issues"
